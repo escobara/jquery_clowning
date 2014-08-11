@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Inserting Content Into an Element
+	</title>
+	<script src='jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('#container').html("<p>I have replaced all of the content within the #container element </p>");
+			$("#container").prepend("<p>This paragraph has been prepended to the first paragraph but still inside of the #container element</p>");
+			$('#container').append("<button> A button appended</button>");
+			// $('#container').insertAfter("<button> A button appended</button>");
+			$("#myTextarea").val("Added some text using .text()");
+		});
+
+	</script>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div id="container">
+		<p>Here is some current HTML content</p>
+	</div>
+	<textarea id="myTextarea" cols="30" rows="10">
+		
+	</textarea>
+</body>
+</html>
