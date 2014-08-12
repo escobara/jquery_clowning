@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Enabling and disabling buttons by changing their properties</title>
+	<script src='javascripts/jquery.min.js'></script>
+	<script>
+		$(function() {
+			$('#search-input').keyup(function(){
+				if ($(this).val().length > 2 ) {
+					$("#search-btn").prop("disabled", false);
+				} else {
+					$("#search-btn").prop("disabled", true)
+				}
+			});
+
+			$('#target').keyup(function(){
+				alert("Handler for keyup called");
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<input type="text" id='search-input'>
+	<button id="search-btn" disabled>Search</button>
+
+	<form>
+	  <input id="target" type="text" value="Hello there">
+	</form>
+	<div id="other">
+	  Trigger the handler
+	</div>
+</body>
+</html>
