@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Restricting Input Character Length</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('.myInput').keypress(function(event){
+				var regex = new RegExp("^[a-zA-Z0-9]+$");
+				var key = String.fromCharCode(event.which);
+				if (!regex.test(key)){
+					return false;
+				}
+			});
+		})
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<input type="text" class="myInput">
+</body>
+</html>

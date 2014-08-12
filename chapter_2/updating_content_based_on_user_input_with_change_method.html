@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Updating Content Based on User Input</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('#title').change(function(){
+				var titleText = '';
+				switch ($(this).val()){
+					case '1':
+						titleText = 'Jumanji';
+						break;
+					case '2':
+						titleText = 'Mrs. Doubtfire';
+						break;
+					case '3':
+						titleText = 'Goodwill Hunting';
+						break;
+					default:
+						titleText = 'No Title Given';
+				}
+					$('#main-title').html(titleText);
+			})
+		});
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<p>In this example the change was attached to the #title. When the user selected to change the input, the event handler is fired to change the #main-title html</p>
+<code>
+	$(function(){
+		$('#title').change(function(){
+			var titleText = '';
+			switch ($(this).val()){
+				case '1':
+					titleText = 'Jumanji';
+					break;
+				case '2':
+					titleText = 'Mrs. Doubtfire';
+					break;
+				case '3':
+					titleText = 'Goodwill Hunting';
+					break;
+				default:
+					titleText = 'No Title Given';
+			}
+				$('#main-title').html(titleText);
+		})
+	});
+</code> <br>
+
+<select name="" id="title">
+	<option value=""></option>
+	<option value="1">Title 1</option>
+	<option value="2">Title 2</option>
+	<option value="3">Title 3</option>
+</select>
+<h1 id="main-title">No Title</h1>
+</body>
+</html>

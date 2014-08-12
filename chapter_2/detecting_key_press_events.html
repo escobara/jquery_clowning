@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Detecting Key Press Events</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('.myInput').keyup(function(){
+				$('#myList').append('<li>Key Up!</li>');
+			});
+			$('.myInput').keydown(function(event){
+				$('#myList').append('<li>Key Down!</li>');
+				if(event.which == 13) {
+					$('#myList').append("<li>Enter key Pressed!</li>");
+				} 
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<input type="text" class="myInput">
+<ul id="myList"></ul>
+</body>
+</html>
