@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Chapter 1:: DOM Manipulation
+	</title>
+	<script src='javascripts/jquery.min.js'></script>
+	<script>
+		var animals = [
+		{
+			id: 1,
+			name: 'Dog',
+			type: 'Mammal'
+		},
+		{
+			id: 2,
+			name: 'Cat',
+			type: 'Mammal'
+		},
+		{
+			id: 3,
+			name: 'Goat',
+			type: 'Mammal'
+		},
+		{
+			id: 4,
+			name: 'Lizzard',
+			type: 'Reptile'
+		},
+		{
+			id: 5,
+			name: 'Frog',
+			type: 'Amphibian'
+		},
+		{
+			id: 6,
+			name: 'Spider',
+			type: 'Arachnid'
+		},
+		{
+			id: 7,
+			name: 'Tortoise',
+			type: 'Mammal'
+		},
+		{
+			id: 8,
+			name: 'Barracuda',
+			type: 'Fish'
+		},
+		{
+			id: 9,
+			name: 'Sheep',
+			type: 'Mammal'
+		},
+		{
+			id: 10,
+			name: 'Crocodile',
+			type: 'Reptile'
+		},
+		{
+			id: 11,
+			name: 'Lion',
+			type: 'Mammal'
+		},
+		{
+			id: 12,
+			name: 'Seal',
+			type: 'Mammal'
+		}
+		];
+		var pageSize = 4;
+		var currentPage = 1;
+		var pagedResults = [];
+		var totalResults = animals.length;
+		$(function(){
+			function updateList(){
+				var end = (currentPage * pageSize);
+				var start = (end - pageSize);
+				pagedResults = animals.slice(start, end);
+				$('#list').empty();
+				if (currentPage <= 1 ) {
+					$('.previous').prop('disabled', true); 
+				} else {
+					$('.previous').prop('disabled', false);
+				}
+
+				if ((currentPage * pageSize) >= totalResults) {
+					$('.next').prop('disabled', true);
+				} else {
+					$('.next').prop('disabled', false);
+				}
+
+				$.each(pagedResults, function(index, obj){
+					$('#list').append('<li><strong>' + obj.name + '</strong> (' + obj.type + ')</li>');
+				});
+			}
+			updateList();
+			$('.next').click(function(){
+				if ((currentPage * pageSize) <= totalResults) currentPage++;
+				updateList();
+			});
+			$('.previous').click(function(){
+				if (currentPage > 1 ) currentPage --; 
+					updateList();
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<ul id="list"></ul>
+	<button class="previous"> << Previous</button>
+	<button class="next"> >> Next</button>
+</body>
+</html>
