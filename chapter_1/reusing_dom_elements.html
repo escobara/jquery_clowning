@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Add and remove CSS classes to dynamically change their style</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+	var animals = [
+		{
+			id: 1,
+			name: 'Dog',
+			type: 'Mammal',
+			class: 'one'
+		},
+		{
+			id: 2,
+			name: 'Cat',
+			type: 'Mammal',
+			class: 'one'
+		},
+		{
+			id: 3,
+			name: 'Goat',
+			type: 'Mammal',
+			class: 'two'
+		},
+		{
+			id: 4,
+			name: 'Lizzard',
+			type: 'Reptile',
+			class: 'three'
+		},
+		{
+			id: 5,
+			name: 'Frog',
+			type: 'Amphibian',
+			class: 'three'
+		},
+		{
+			id: 6,
+			name: 'Spider',
+			type: 'Arachnid',
+			class: 'four'
+		}
+		];
+		$(function() {
+			$.each(animals, function(index, obj){
+				var listTemplate = $('#animal-list li').first().clone();
+				listTemplate.find('.name').html(obj.name);
+				listTemplate.find('.type').html(obj.type);
+				listTemplate.removeClass();
+				listTemplate.addClass(obj.class);
+				$('#animal-list').append(listTemplate);
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="../css/reusing_dom.css">
+</head>
+<body>
+	<ul id="animal-list">
+		<li class="dinosaur"><strong><span class="name">T-Rex</span><span class="type">Dinosaur</span></strong></li>
+	</ul>
+</body>
+</html>

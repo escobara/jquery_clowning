@@ -4,27 +4,27 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Updating an image within a page</title>
-	<script src="javascripts/jquery.min.js"></script>
+	<script src="../javascripts/jquery.min.js"></script>
 	<script>
 		$(function(){
 			$('#red-btn').click(function(){
-				$("#square").prop("src", 'images/red.png?t=' + new Date().getTime());
+				$("#square").prop("src", '../images/red.png?t=' + new Date().getTime());
 			});
 			$("#green-btn").click(function(){
-				$("#square").prop("src", 'images/green.jpg?t=' + new Date().getTime())
+				$("#square").prop("src", '../images/green.jpg?t=' + new Date().getTime())
 			});
 			$('#blue-btn').click(function(){
-				$("#square").prop("src", 'images/blue.jpg?t=' + new Date().getTime());
+				$("#square").prop("src", '../images/blue.jpg?t=' + new Date().getTime());
 			});
 			$('#square').click(function(){
-				$(this).prop("src", 'images/black.jpg?t=' + new Date().getTime())
+				$(this).prop("src", '../images/black.jpg?t=' + new Date().getTime())
 			});
 		});
 	</script>
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<img src="images/black.jpg" id='square'>
+	<img src="../images/black.jpg" id='square'>
 	<div>
 		<button id="red-btn">Red</button>
 		<button id='green-btn'>Green</button>

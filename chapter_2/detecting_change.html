@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Detecting Change</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('#names').change(function(){
+				var newValue = $(this).val();
+				alert("Input Value Changed to: " + newValue);
+			});
+			$('#cat').change(function(){
+				var newValue = $(this).val();
+				alert("Input Value Changed to: " + newValue);
+			})
+		})
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<select id="names">
+		<option value="Leon">Leon</option>
+		<option value="Allyce">Allyce</option>
+		<option value="Jane">Jane</option>
+	</select>
+
+</body>
+</html>
