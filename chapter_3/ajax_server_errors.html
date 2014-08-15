@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ajax Server Errors</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$('#makeRequest').click(function(){
+				$.ajax({
+					url: 'i-do-not-exist.html',
+					type: 'GET'
+				}).done(function(data){
+					// will not succeed because no file exists
+				});
+			});
+			$(document).ajaxError(function(event, request, settings){
+				alert("Error trying to reach '" + settings.url + "'. ERROR CODE: " + request.status + "ERROR MESSAGE: " + request.statusText + "with REQUEST TYPE: " + settings.type );
+			});
+		})
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<button id="makeRequest">Make Ajax Request</button>
+</body>
+</html>

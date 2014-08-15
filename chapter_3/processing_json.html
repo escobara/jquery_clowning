@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Processing JSON data</title>
+	<script src='../javascripts/jquery.min.js'></script>
+	<script>
+		$(function(){
+			$.ajax({
+				url: '../php_files/json_request.php',
+				type: 'GET'
+			}).done(function(data){
+				$.each(data, function(key, value){
+					$('#peopleList').append("<li>#" + key + " " + value.firstname+ ' ' + value.lastname + '</li>');
+				});
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<ul id="peopleList"></ul>
+</body>
+</html>
