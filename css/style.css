@@ -16,3 +16,12 @@
 .bold {
 	text-decoration: underline;
 }
+
+.info {
+    width: 530px;
+    border: solid 2px yellow;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    display: none;    
+}
